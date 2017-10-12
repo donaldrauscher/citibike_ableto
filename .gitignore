@@ -1,0 +1,12 @@
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+.idea
+
+infrastructure/terraform.tfstate
+infrastructure/terraform.tfstate.backup
+

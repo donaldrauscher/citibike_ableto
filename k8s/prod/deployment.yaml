@@ -1,0 +1,39 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: citibike
+  namespace: prod
+
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: citibike
+        env:  prod
+    spec:
+      containers:
+        -
+          name: citibike
+          imagePullPolicy: Always
+          image: us.gcr.io/np-training/citibike:v1.0.0
+          resources:
+            limits:
+              memory: "512M"
+              cpu: "500m"
+            requests:
+              memory: "128M"
+              cpu: "200m"
+          readinessProbe:
+            httpGet:
+              path: /ping
+              port: main-port
+          livenessProbe:
+            httpGet:
+              path: /ping
+              port: main-port
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          ports:
+            - name: main-port
+              containerPort: 9018

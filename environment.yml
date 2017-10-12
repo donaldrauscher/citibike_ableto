@@ -1,0 +1,16 @@
+
+dependencies:
+  - flask
+  - scikit-learn==0.18.2
+  - pandas
+  - requests
+  - pip:
+    - configparser
+    - flask-compress
+    - flask-cors
+    - gunicorn
+    - gevent
+    - pygogo
+    - python-json-logger
+    - webargs
+    - category_encoders
